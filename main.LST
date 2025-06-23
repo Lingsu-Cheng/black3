@@ -1,0 +1,165 @@
+C51 COMPILER V9.01   MAIN                                                                  06/16/2025 19:13:49 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE INCDIR(.\OLED) DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<oled.h>
+   2          #include <STC8H.H>
+   3          #include <intrins.h>
+   4          #define uchar unsigned char
+   5          #define uint unsigned int
+   6          
+   7          sbit INPUT= P1^6  ;
+   8          sbit OUTPUT = P1^7       ;
+   9          sbit testkey = P3^2;  
+  10          unsigned int num = 0;
+  11          unsigned char time_out = 0;
+  12          /* 宏定义 */
+  13          #define SOUND_VELOCITY 34300  // 声速 (cm/s)
+  14           #define PERIOD_US 1.085e-6  // 系统时钟频率 (Hz)
+  15          #define CLOCK_PERIOD PERIOD_US
+  16          void Timer0_Init(void) {
+  17   1          TMOD &= 0xF0;  // 清除定时器0模式位
+  18   1          TMOD |= 0x01;  // 定时器0设置为模式1（16位）
+  19   1          TR0 = 0;       // 停止定时器
+  20   1          TF0 = 0; 
+  21   1              ET0 = 0;      // 清除溢出标志
+  22   1      }
+  23          void Start_Timer() {
+  24   1          TH0 = 0;            // 高8位清零
+  25   1          TL0 = 0;            // 低8位清零
+  26   1          TF0 = 0;            // 清中断标志
+  27   1          TR0 = 1;            // 启动定时器
+  28   1      }
+  29          void Stop_Timer() {
+  30   1          TR0 = 0;            // 关闭定时器
+  31   1      }
+  32          unsigned int Get_Timer_Value() {
+  33   1          unsigned int t0;
+  34   1          t0 = ((unsigned int)TH0 << 8) | TL0;  // 获取当前 Timer0 计数值（单位：us）
+  35   1          return t0 ;   // 返回16位当前计数值，单位为微秒（us）
+  36   1      }
+  37          
+  38          void start_project(void)
+  39          {            OLED_ShowChinese(28,0,9,12);//显示”电"
+  40   1                       OLED_ShowChinese(42,0,10,12);//显示”路“
+  41   1                       OLED_ShowChinese(56,0,11,12);//显示”黑”
+  42   1                       OLED_ShowChinese(68,0,12,12);//显示”箱 “
+  43   1                       OLED_ShowChinese(80,0,13,12);//显示”测
+  44   1                       OLED_ShowChinese(92,0,14,12);//显示”试”
+  45   1                       OLED_ShowChinese(104,0,15,12);//显示”仪“      
+  46   1               OLED_ShowChinese(0,2,0,12);//显示”杨"
+  47   1                       OLED_ShowChinese(14,2,1,12);//显示”宇“
+  48   1                       OLED_ShowChinese(28,2,2,12);//显示”非”
+  49   1                       OLED_ShowString(60,2,"23211336",8); 
+  50   1                       OLED_ShowChinese(0,4,3,12);//显示”高 “
+  51   1                       OLED_ShowChinese(14,4,4,12);//显示”若
+  52   1                       OLED_ShowChinese(28,4,5,12);//显示”恒”
+  53   1                       OLED_ShowString(60,4,"23211290",8);
+  54   1                       OLED_ShowChinese(0,6,6,12);//显示”汪“
+  55   1                       OLED_ShowChinese(14,6,7,12);//显示”超”
+C51 COMPILER V9.01   MAIN                                                                  06/16/2025 19:13:49 PAGE 2   
+
+  56   1                       OLED_ShowChinese(28,6,8,12);//显示”然“
+  57   1                       OLED_ShowString(60,6,"23211301",8);
+  58   1                       delay_ms(2000);
+  59   1                       OLED_Clear();           
+  60   1      }
+  61          void Generate_Step_Signal()
+  62          {                  INPUT = 1 ;
+  63   1                 delay_ms(2000);
+  64   1                          INPUT = 0;
+  65   1      
+  66   1      }
+  67          void ADC_Init()
+  68          {
+  69   1      }
+  70          float ADC_Read()
+  71          {
+  72   1      }
+*** WARNING C173 IN LINE 72 OF MAIN.C: missing return-expression
+  73          
+  74           void system_init()
+  75           {        P1M0 = 0x00;  // 设置 P1 为准双向口（传统 51 模式）
+  76   1          P1M1 = 0x00;
+  77   1              P3M0 &= ~(1 << 2);  // M0.2 = 0
+  78   1          P3M1 &= ~(1 << 2);  // M1.2 = 0
+  79   1              Timer0_Init();
+  80   1                testkey= 1;
+  81   1                INPUT =0;
+  82   1                OUTPUT =0;
+  83   1                ADC_Init();  
+  84   1       }
+  85          
+  86          /* 简单的ms级延时 */
+  87           unsigned int keypressed()                      //检测按键状态
+  88           {               
+  89   1              unsigned int key_Flag=0;
+  90   1         if (testkey == 0) {         // 检测按键按下（低电平）
+  91   2              delay_ms(20);           // 简单消抖
+  92   2              if (testkey == 0) {
+  93   3                  if (!key_Flag) {
+  94   4                      key_Flag = 1;   // 设置按键已按下标志
+  95   4                      return 1;       // 第一次检测到按下，返回1
+  96   4                  }
+  97   3              }
+  98   2          } else {
+  99   2              key_Flag = 0;           // 松开按键后，复位标志位
+ 100   2          }
+ 101   1              return 0;
+ 102   1       }
+ 103          void Start_BlackBox_Test()
+ 104          {                  float   v0 =0;
+ 105   1                 unsigned int t;
+ 106   1                 Generate_Step_Signal();
+ 107   1                 v0= ADC_Read();
+ 108   1                         delay_ms(10);
+ 109   1                         Start_Timer();
+ 110   1      
+ 111   1                         Stop_Timer();
+ 112   1                         t=  Get_Timer_Value();
+ 113   1      
+ 114   1      
+ 115   1      }
+ 116          
+C51 COMPILER V9.01   MAIN                                                                  06/16/2025 19:13:49 PAGE 3   
+
+ 117          void main() {
+ 118   1              
+ 119   1          system_init();
+ 120   1          OLED_Init();//?????OLED
+ 121   1              OLED_ColorTurn(0);//0?????????1 ??????
+ 122   1          OLED_DisplayTurn(0);//0??????? 1 ?????????
+ 123   1               start_project();
+ 124   1                while (1) {
+ 125   2              if (keypressed()) {
+ 126   3      //           OLED_ShowString(60,2,"hello",16);  // 进入黑箱测试流程
+ 127   3                    Start_BlackBox_Test();
+ 128   3              }
+ 129   2          }
+ 130   1      }                  
+ 131                  
+ 132           
+ 133          
+ 134            
+ 135                  
+ 136                  
+*** WARNING C290 IN LINE 72 OF MAIN.C: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    437    ----
+   CONSTANT SIZE    =     27    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)
