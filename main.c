@@ -1,6 +1,8 @@
 #include<oled.h>
 #include <STC8H.H>
 #include <intrins.h>
+#include "adc.h"
+#include <math.h>
 #define uchar unsigned char
 #define uint unsigned int
 
@@ -13,6 +15,10 @@ unsigned char time_out = 0;
 #define SOUND_VELOCITY 34300  // 声速 (cm/s)
  #define PERIOD_US 1.085e-6  // 系统时钟频率 (Hz)
 #define CLOCK_PERIOD PERIOD_US
+float Get_Time_ms() {
+    unsigned int t = ((unsigned int)TH0 << 8) | TL0;
+    return t / 1000.0f;  // 以毫秒为单位返回
+}
 void Timer0_Init(void) {
     TMOD &= 0xF0;  // 清除定时器0模式位
     TMOD |= 0x01;  // 定时器0设置为模式1（16位）
@@ -64,12 +70,7 @@ void Generate_Step_Signal()
 		    INPUT = 0;
 
 }
-void ADC_Init()
-{
-}
-float ADC_Read()
-{
-}
+
 
  void system_init()
  {	  P1M0 = 0x00;  // 设置 P1 为准双向口（传统 51 模式）
@@ -80,7 +81,7 @@ float ADC_Read()
 	  testkey= 1;
 	  INPUT =0;
 	  OUTPUT =0;
-	  ADC_Init();  
+	 ADC_Init();  
  }
 
 
@@ -100,21 +101,42 @@ float ADC_Read()
     }
 	return 0;
  }
- void box_sort()
+ void box_sort(float tau,float v0,float v_inf)
  {
  }
 void Start_BlackBox_Test()
-{		   float   v0 =0;
-           unsigned int t;
-           Generate_Step_Signal();
-           v0= ADC_Read();
-		   delay_ms(10);
-		   Start_Timer();
+{		   unsigned int adc_val;
+           float v0, v_inf, vt, v_target;
+           float tau = 0;
+           float t_ms = 0;
+		   Generate_Step_Signal() ;
+		   delay_us(50);               // 等待上升沿稳定
 
-		   Stop_Timer();
-		   t=  Get_Timer_Value();
-		   blacksort();
+    // === 2. 采样初始电压 v0 ===
+            adc_val = ADC_Read(0);
+            v0 = ADC_ToVoltage(adc_val);
+		    delay_ms(30);                   // 等待黑箱电压趋于稳定
+            adc_val = ADC_Read(0);
+             v_inf = ADC_ToVoltage(adc_val);
+			   // === 4. 计算 v_target = v_inf + (v0 - v_inf) * e^(-1) ===
+               v_target = v_inf + (v0 - v_inf) * 0.368f;
 
+
+
+    // === 5. 再次施加阶跃（重新开始），准备计时 ===
+    Generate_Step_Signal();
+    delay_us(50);               // 给起始电压稳定时间
+
+    Start_Timer();              // 启动定时器
+    do {
+        adc_val = ADC_Read(0);
+        vt = ADC_ToVoltage(adc_val);
+    } while (fabs(vt - v_target) > 0.02 && Get_Timer_Value() < 60000);
+    Stop_Timer();
+
+    t_ms = Get_Time_ms();      // 计数器值转换为 ms
+     tau = t_ms;   
+	 box_sort()	 ;
 }
 
 void main() {
@@ -126,8 +148,8 @@ void main() {
  	 start_project();
 	  while (1) {
         if (keypressed()) {
-//           OLED_ShowString(60,2,"hello",16);  // 进入黑箱测试流程
-              Start_BlackBox_Test();
+          OLED_ShowString(60,2,"hello",16);  // 进入黑箱测试流程
+//              Start_BlackBox_Test();
         }
     }
 }		   

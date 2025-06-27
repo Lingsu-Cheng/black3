@@ -294,7 +294,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\OLED</IncludePath>
+              <IncludePath>.\OLED;.\ADC</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -356,11 +356,6 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
-            <File>
-              <FileName>ADC.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ADC.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -385,6 +380,21 @@
               <FileName>oledfont.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\OLED\oledfont.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ADC</GroupName>
+          <Files>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ADC\ADC.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ADC\adc.h</FilePath>
             </File>
           </Files>
         </Group>

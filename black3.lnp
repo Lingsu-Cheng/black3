@@ -1,6 +1,6 @@
 "STARTUP.obj",
 "main.obj",
-"ADC.obj",
-"oled.obj" 
+"oled.obj",
+"ADC.obj" 
 TO "black3" 
 RAMSIZE(256) 

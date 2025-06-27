@@ -3,53 +3,18 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\86152\Documents\电设\black3\black3.uvproj
-Project File Date:  06/16/2025
+C:\Users\86152\Documents\电设\原始black3\black3\black3.uvproj
+Project File Date:  06/27/2025
 
 <h2>Output:</h2>
 Build target 'Target 1'
 assembling STARTUP.A51...
 compiling main.c...
-MAIN.C(65): error C202: 'OUTPUT': undefined identifier
-compiling ADC.c...
 compiling oled.c...
-Target not created
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-MAIN.C(87): warning C206: 'Generate_Step_Signal': missing function-prototype
-MAIN.C(88): error C141: syntax error near 'float'
-MAIN.C(88): error C202: 'v0': undefined identifier
-MAIN.C(91): error C231: 'Generate_Step_Signal': redefinition
-MAIN.C(95): error C231: 'Generate_Step_Signal': redefinition
 compiling ADC.c...
-compiling oled.c...
-Target not created
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-MAIN.C(94): error C141: syntax error near 'float'
-MAIN.C(94): error C202: 'v0': undefined identifier
-compiling ADC.c...
-compiling oled.c...
-Target not created
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-MAIN.C(95): error C193: '=': illegal type conversion from/to 'void'
-compiling ADC.c...
-compiling oled.c...
-Target not created
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-MAIN.C(59): warning C173: missing return-expression
-MAIN.C(59): warning C290: missing return value
-compiling ADC.c...
-compiling oled.c...
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?GET_TIMER_VALUE?MAIN
+    SEGMENT: ?PR?START_BLACKBOX_TEST?MAIN
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
@@ -58,19 +23,19 @@ linking...
     SEGMENT: ?PR?_OLED_SHOWNUM?OLED
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_OLED_DRAWBMP?OLED
-Program Size: data=51.0 xdata=0 code=4651
+Program Size: data=57.0 xdata=0 code=4879
 creating hex file from "black3"...
-"black3" - 0 Error(s), 7 Warning(s).
+"black3" - 0 Error(s), 5 Warning(s).
+Driver version   : V1.19
+Firmware version : V3.2
 Build target 'Target 1'
 assembling STARTUP.A51...
 compiling main.c...
-MAIN.C(59): warning C173: missing return-expression
-MAIN.C(59): warning C290: missing return value
-compiling ADC.c...
 compiling oled.c...
+compiling ADC.c...
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?GET_TIMER_VALUE?MAIN
+    SEGMENT: ?PR?START_BLACKBOX_TEST?MAIN
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
@@ -79,111 +44,112 @@ linking...
     SEGMENT: ?PR?_OLED_SHOWNUM?OLED
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_OLED_DRAWBMP?OLED
-Program Size: data=51.0 xdata=0 code=4657
-creating hex file from "black3"...
-"black3" - 0 Error(s), 7 Warning(s).
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-MAIN.C(70): warning C173: missing return-expression
-MAIN.C(72): error C231: 'Get_Timer_Value': redefinition
-MAIN.C(73): error C231: 'Get_Timer_Value': redefinition
-compiling ADC.c...
-compiling oled.c...
-Target not created
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-MAIN.C(70): warning C173: missing return-expression
-MAIN.C(70): warning C290: missing return value
-compiling ADC.c...
-compiling oled.c...
-linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?START_TIMER?MAIN
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?STOP_TIMER?MAIN
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?GET_TIMER_VALUE?MAIN
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
-Program Size: data=51.0 xdata=0 code=4678
-creating hex file from "black3"...
-"black3" - 0 Error(s), 9 Warning(s).
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-MAIN.C(70): warning C173: missing return-expression
-MAIN.C(70): warning C290: missing return value
-compiling ADC.c...
-compiling oled.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?START_TIMER?MAIN
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?STOP_TIMER?MAIN
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?GET_TIMER_VALUE?MAIN
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
-Program Size: data=51.0 xdata=0 code=4678
-creating hex file from "black3"...
-"black3" - 0 Error(s), 9 Warning(s).
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-MAIN.C(72): warning C173: missing return-expression
-MAIN.C(111): error C202: 't': undefined identifier
-compiling ADC.c...
-compiling oled.c...
-Target not created
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-MAIN.C(72): warning C173: missing return-expression
-MAIN.C(111): error C202: 't': undefined identifier
-compiling ADC.c...
-compiling oled.c...
-Target not created
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-MAIN.C(72): warning C173: missing return-expression
-MAIN.C(72): warning C290: missing return value
-compiling ADC.c...
-compiling oled.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
-Program Size: data=51.0 xdata=0 code=5076
+    SEGMENT: ?PR?_ADC_TOVOLTAGE?ADC
+Program Size: data=57.0 xdata=0 code=5405
 creating hex file from "black3"...
 "black3" - 0 Error(s), 6 Warning(s).
 Build target 'Target 1'
 assembling STARTUP.A51...
 compiling main.c...
-MAIN.C(72): warning C173: missing return-expression
-MAIN.C(72): warning C290: missing return value
-compiling ADC.c...
+MAIN.C(99): error C141: syntax error near '3.3'
+MAIN.C(108): error C141: syntax error near 'delay_us'
 compiling oled.c...
+compiling ADC.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(99): warning C280: 'tau': unreferenced local variable
+MAIN.C(99): warning C280: 'v0': unreferenced local variable
+MAIN.C(99): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(108): warning C206: 'delay_us': missing function-prototype
+MAIN.C(108): error C267: 'delay_us': requires ANSI-style prototype
+MAIN.C(111): error C202: 'ADC_CHANNEL': undefined identifier
+compiling oled.c...
+compiling ADC.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(99): warning C280: 'tau': unreferenced local variable
+MAIN.C(99): warning C280: 'v0': unreferenced local variable
+MAIN.C(99): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(111): error C202: 'ADC_CHANNEL': undefined identifier
+compiling oled.c...
+compiling ADC.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(99): warning C280: 'tau': unreferenced local variable
+MAIN.C(99): warning C280: 'v0': unreferenced local variable
+MAIN.C(99): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(112): warning C206: 'ADC_ToVoltage': missing function-prototype
+MAIN.C(112): error C267: 'ADC_ToVoltage': requires ANSI-style prototype
+compiling oled.c...
+compiling ADC.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(99): warning C280: 'tau': unreferenced local variable
+MAIN.C(99): warning C280: 'v0': unreferenced local variable
+MAIN.C(99): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(113): warning C206: 'Delay_ms': missing function-prototype
+MAIN.C(113): error C267: 'Delay_ms': requires ANSI-style prototype
+MAIN.C(114): error C202: 'ADC_CHANNEL': undefined identifier
+MAIN.C(127): error C202: 'ADC_CHANNEL': undefined identifier
+compiling oled.c...
+compiling ADC.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(99): warning C280: 'tau': unreferenced local variable
+MAIN.C(99): warning C280: 'v0': unreferenced local variable
+MAIN.C(99): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(113): warning C206: 'Delay_ms': missing function-prototype
+MAIN.C(113): error C267: 'Delay_ms': requires ANSI-style prototype
+compiling oled.c...
+compiling ADC.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(99): warning C280: 'tau': unreferenced local variable
+MAIN.C(99): warning C280: 'v0': unreferenced local variable
+MAIN.C(99): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(129): warning C206: 'fabs': missing function-prototype
+MAIN.C(129): error C267: 'fabs': requires ANSI-style prototype
+compiling oled.c...
+compiling ADC.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(100): warning C280: 'tau': unreferenced local variable
+MAIN.C(100): warning C280: 'v0': unreferenced local variable
+MAIN.C(100): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(133): warning C206: 'Get_Time_ms': missing function-prototype
+MAIN.C(135): warning C209: '_box_sort': too few actual parameters
+MAIN.C(136): error C141: syntax error near '}'
+compiling oled.c...
+compiling ADC.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(100): warning C280: 'tau': unreferenced local variable
+MAIN.C(100): warning C280: 'v0': unreferenced local variable
+MAIN.C(100): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(133): warning C206: 'Get_Time_ms': missing function-prototype
+MAIN.C(135): warning C209: '_box_sort': too few actual parameters
+compiling oled.c...
+compiling ADC.c...
 linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?START_BLACKBOX_TEST?MAIN
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
@@ -192,6 +158,183 @@ linking...
     SEGMENT: ?PR?_OLED_SHOWNUM?OLED
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_OLED_DRAWBMP?OLED
-Program Size: data=51.0 xdata=0 code=4692
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  GET_TIME_MS
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  GET_TIME_MS
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 10A3H
+Program Size: data=85.0 xdata=0 code=5974
 creating hex file from "black3"...
-"black3" - 0 Error(s), 6 Warning(s).
+"black3" - 0 Error(s), 12 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(100): warning C280: 'tau': unreferenced local variable
+MAIN.C(100): warning C280: 'v0': unreferenced local variable
+MAIN.C(100): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(133): warning C206: 'Get_Time_ms': missing function-prototype
+MAIN.C(135): warning C209: '_box_sort': too few actual parameters
+compiling oled.c...
+compiling ADC.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?START_BLACKBOX_TEST?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  GET_TIME_MS
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  GET_TIME_MS
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 10A3H
+Program Size: data=85.0 xdata=0 code=5974
+creating hex file from "black3"...
+"black3" - 0 Error(s), 12 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(100): warning C280: 'tau': unreferenced local variable
+MAIN.C(100): warning C280: 'v0': unreferenced local variable
+MAIN.C(100): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(133): warning C206: 'Get_Time_ms': missing function-prototype
+MAIN.C(135): warning C209: '_box_sort': too few actual parameters
+compiling oled.c...
+compiling ADC.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?START_BLACKBOX_TEST?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  GET_TIME_MS
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  GET_TIME_MS
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 10A3H
+Program Size: data=85.0 xdata=0 code=5974
+creating hex file from "black3"...
+"black3" - 0 Error(s), 12 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(100): warning C280: 'tau': unreferenced local variable
+MAIN.C(100): warning C280: 'v0': unreferenced local variable
+MAIN.C(100): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(133): warning C206: 'Get_Time_ms': missing function-prototype
+MAIN.C(135): warning C209: '_box_sort': too few actual parameters
+compiling oled.c...
+compiling ADC.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?START_BLACKBOX_TEST?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  GET_TIME_MS
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  GET_TIME_MS
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 10A3H
+Program Size: data=85.0 xdata=0 code=5974
+creating hex file from "black3"...
+"black3" - 0 Error(s), 12 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(100): warning C280: 'tau': unreferenced local variable
+MAIN.C(100): warning C280: 'v0': unreferenced local variable
+MAIN.C(100): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(133): warning C206: 'Get_Time_ms': missing function-prototype
+MAIN.C(135): warning C209: '_box_sort': too few actual parameters
+compiling oled.c...
+compiling ADC.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?START_BLACKBOX_TEST?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  GET_TIME_MS
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  GET_TIME_MS
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 10A3H
+Program Size: data=85.0 xdata=0 code=5975
+creating hex file from "black3"...
+"black3" - 0 Error(s), 12 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(104): warning C280: 'tau': unreferenced local variable
+MAIN.C(104): warning C280: 'v0': unreferenced local variable
+MAIN.C(104): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(139): warning C209: '_box_sort': too few actual parameters
+compiling oled.c...
+compiling ADC.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?START_BLACKBOX_TEST?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=85.0 xdata=0 code=5992
+creating hex file from "black3"...
+"black3" - 0 Error(s), 9 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(104): warning C280: 'tau': unreferenced local variable
+MAIN.C(104): warning C280: 'v0': unreferenced local variable
+MAIN.C(104): warning C280: 'v_inf': unreferenced local variable
+MAIN.C(139): warning C209: '_box_sort': too few actual parameters
+compiling oled.c...
+compiling ADC.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?START_BLACKBOX_TEST?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=85.0 xdata=0 code=5992
+creating hex file from "black3"...
+"black3" - 0 Error(s), 9 Warning(s).
